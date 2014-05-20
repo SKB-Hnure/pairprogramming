@@ -12,9 +12,14 @@ fraction fadd(fraction a, fraction b)
  result.denominator=(a.numerator*b.denominator+b.numerator*a.denominator);
  result.numerator=(a.denominator*b.denominator);
  return result;
-
 }
-
+fraction fsub(fraction a, fraction b)
+{
+ fraction result;
+ result.denominator=(a.numerator*b.denominator-b.numerator*a.denominator);
+ result.numerator=(a.denominator*b.denominator);
+ return result;
+}
 int main()
 {
  fraction operand[2];
