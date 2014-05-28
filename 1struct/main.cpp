@@ -18,3 +18,16 @@ int main()
     cout<<number.town<<'\t'<<number.number_station<<'\t'<<number.number_phone;
     return 0;
 }
+
+
+int area(int a, int b)
+{
+return a*b;
+}
+int main()
+{
+int little_side=2;
+int big_side=5;
+cout<<area(little_side, big_side);
+return 0;
+}
