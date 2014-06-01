@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1401578539 source:/home/igor/Lab/lB_2/Lb_2/main.cpp
+	<stdio.h>
+	<locale.h>
+	<wchar.h>
+	<langinfo.h>
+
