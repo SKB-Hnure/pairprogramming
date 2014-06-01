@@ -6,3 +6,10 @@
 	<wchar.h>
 	<langinfo.h>
 
+1401626053 source:/home/igor/Programms/pairprogramming/Lab/lB_2/Lb_10/main.cpp
+	<iostream>
+	<stdio.h>
+	<locale.h>
+	<wchar.h>
+	<langinfo.h>
+

@@ -15,47 +15,38 @@ int main()
     bool flag= true;
 
     struct lib {
-      char name[10]; //название
-      char author[10];   //автор
-      char group[5];    //группа
+      wchar_t  name[30]; //название
+      wchar_t  author[30];   //автор
+      wchar_t group;    //группа
       int cnt;
       int year;      //год
       };
 
     lib arr[10];
-
-
+    lib bufer;
     for(int i=0; i<3; i++)
     {
     wprintf(L"%d %s", i+1,". Введите: автор, название, год выпуска, группа\n");
-    wscanf(L"%s %s %d %lc", arr[i].name, arr[i].author, &arr[i].year, &arr[i].group);
-   // wscanf(L"%s %s %d %lc",autor2, title2, &year2, &group2);
+    wscanf(L"%s %s %d %lc",   arr[i].author, arr[i].name, &arr[i].year, &arr[i].group);
     }
 
     while(flag)
     {
-    for(int i=0; i<10; i++)
+        flag=false;
+    for(int i=0; i<2; i++)
     {
-        if(arr[i].author[i]>arr[i+1].author[i])
+
+        if(L arr[i].author[0]>L arr[i+1].author[0])
             {
-            arr[i+1].author[i]=arr[i].author[i];
-            caunt++;
-             wprintf(L"Сортировка\n");
+            bufer=arr[i];
+            arr[i]=arr[i+1];
+            arr[i+1]=bufer;
+            wprintf(L"Сортировка\n");
+            flag=true;
+          wprintf(L"%d %d| %d %d\n", i , (int)arr[i].author[0], i+1, (int)arr[i+1].author[0]);
             }
-         else
-             if (caunt!=0)
-                {
-                flag=true;
-                caunt=0;
-                }
-             else
-                flag=false;
-
-
     }
     }
-
-
 
 
     /* вывод заголовков */
@@ -68,8 +59,9 @@ int main()
     /* вывод строк фактических данных */
     for(int i=0; i<3; i++)
     {
-    wprintf(L"| %-13s | %-13s |   %4d  |    %lc    |\n", arr[i].name, arr[i].author, arr[i].year, arr[i].group);
+    wprintf(L"| %-13s | %-13s |   %4d  |   %lc    |\n", arr[i].author, arr[i].name, arr[i].year, arr[i].group);
     }
+   //  wscanf(L"%s %s %d %lc", arr[0].author, arr[0].name, &arr[0].year);
 
     return 0;
 }
