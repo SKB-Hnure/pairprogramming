@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1401524903 source:/home/igor/Lab/lB_2/Lb_8/Lb_8/main.cpp
+	<iostream>
+	<ctime>
+	<cstdlib>
+
+1401785620 source:/home/diana/программы/парное программирование/Лабы ХПИ/6 вар/Lb_8/Lb_8/main.cpp
+	<iostream>
+	<ctime>
+	<cstdlib>
+	<stdio.h>
+

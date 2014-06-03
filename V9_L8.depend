@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1401787556 source:/home/diana/программы/парное программирование/main.c
+	<stdio.h>
+	<stdlib.h>
+

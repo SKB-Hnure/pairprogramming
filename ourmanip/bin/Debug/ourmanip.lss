@@ -1,0 +1,133 @@
+
+bin/Debug/ourmanip.elf:     формат файла elf32-avr
+
+Разделы:
+Инд Имя           Размер    VMA       LMA       Файл      Вырав
+  0 .text         000000c4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  000000c4  00000158  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .fuse         00000002  00820000  00820000  00000158  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .stab         00000e70  00000000  00000000  0000015c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000c20  00000000  00000000  00000fcc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      00000011  00000000  00000000  00001bec  2**0
+                  CONTENTS, READONLY
+
+Дизассемблирование раздела .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 60 00 	jmp	0xc0	; 0xc0 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+ */
+
+#include <avr/io.h>
+
+int main(void)
+{
+  6c:	cf 93       	push	r28
+  6e:	df 93       	push	r29
+  70:	cd b7       	in	r28, 0x3d	; 61
+  72:	de b7       	in	r29, 0x3e	; 62
+DDRC=0b11110000; //1 - вых
+  74:	84 e3       	ldi	r24, 0x34	; 52
+  76:	90 e0       	ldi	r25, 0x00	; 0
+  78:	20 ef       	ldi	r18, 0xF0	; 240
+  7a:	fc 01       	movw	r30, r24
+  7c:	20 83       	st	Z, r18
+PORTC=0b11110000;
+  7e:	85 e3       	ldi	r24, 0x35	; 53
+  80:	90 e0       	ldi	r25, 0x00	; 0
+  82:	20 ef       	ldi	r18, 0xF0	; 240
+  84:	fc 01       	movw	r30, r24
+  86:	20 83       	st	Z, r18
+
+DDRA=0b11111111; //1 - вых
+  88:	8a e3       	ldi	r24, 0x3A	; 58
+  8a:	90 e0       	ldi	r25, 0x00	; 0
+  8c:	2f ef       	ldi	r18, 0xFF	; 255
+  8e:	fc 01       	movw	r30, r24
+  90:	20 83       	st	Z, r18
+PORTA=0b00000000;
+  92:	8b e3       	ldi	r24, 0x3B	; 59
+  94:	90 e0       	ldi	r25, 0x00	; 0
+  96:	fc 01       	movw	r30, r24
+  98:	10 82       	st	Z, r1
+
+DDRD=0xFF;
+  9a:	81 e3       	ldi	r24, 0x31	; 49
+  9c:	90 e0       	ldi	r25, 0x00	; 0
+  9e:	2f ef       	ldi	r18, 0xFF	; 255
+  a0:	fc 01       	movw	r30, r24
+  a2:	20 83       	st	Z, r18
+PORTD=0b00000000;
+  a4:	82 e3       	ldi	r24, 0x32	; 50
+  a6:	90 e0       	ldi	r25, 0x00	; 0
+  a8:	fc 01       	movw	r30, r24
+  aa:	10 82       	st	Z, r1
+
+while (1)
+{
+PORTD=0b00010000;
+  ac:	82 e3       	ldi	r24, 0x32	; 50
+  ae:	90 e0       	ldi	r25, 0x00	; 0
+  b0:	20 e1       	ldi	r18, 0x10	; 16
+  b2:	fc 01       	movw	r30, r24
+  b4:	20 83       	st	Z, r18
+if (PORTC0==1)
+PORTA=(1<<PORTA6);
+if (PORTC1==1)
+PORTA=(0<<PORTA6);
+  b6:	8b e3       	ldi	r24, 0x3B	; 59
+  b8:	90 e0       	ldi	r25, 0x00	; 0
+  ba:	fc 01       	movw	r30, r24
+  bc:	10 82       	st	Z, r1
+ PORTD=0b11111111; //
+ if (PC2==1)
+ PORTD=0b11111111; //PD7
+*/
+    // Insert code
+}
+  be:	f6 cf       	rjmp	.-20     	; 0xac <main+0x40>
+
+000000c0 <_exit>:
+  c0:	f8 94       	cli
+
+000000c2 <__stop_program>:
+  c2:	ff cf       	rjmp	.-2      	; 0xc2 <__stop_program>

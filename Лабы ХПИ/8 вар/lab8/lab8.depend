@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1401807716 source:/home/diana/программы/парное программирование/Лабы ХПИ/8 вар/lab8/main.cpp
+	<iostream>
+	<ctime>
+	<cstdlib>
+	<stdio.h>
+

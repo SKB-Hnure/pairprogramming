@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1401305980 source:/home/diana/программы/парное программирование/manip/fuse.c
+	<avr/io.h>
+
+1401342820 source:/home/diana/программы/парное программирование/manip/main.c
+	<avr/io.h>
+	<avr/iom16.h>
+	<util/delay.h>
+

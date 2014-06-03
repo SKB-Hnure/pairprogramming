@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>ourmanip build log</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>29-05-2014 at 11:48.30</u><br />
+Build ended on: <u>29-05-2014 at 11:48.30</u><p />
+<b>-------------- Build: Debug in ourmanip (compiler: GNU AVR GCC Compiler)---------------</b><br />
+avr-gcc -Wall -mmcu=atmega16 -DF_CPU=16000000UL -g -g -I/usr/include/avr -I/usr/include -c main.c -o obj/Debug/main.o<br />
+avr-g++ -L/usr/lib -o bin/Debug/ourmanip.elf obj/Debug/fuse.o obj/Debug/main.o  -mmcu=atmega16 -Wl,-Map=bin/Debug/ourmanip.map,--cref<br />
+Output file is bin/Debug/ourmanip.elf with size 9,01 KB<br />
+avr-objdump -h -S bin/Debug/ourmanip.elf &gt; bin/Debug/ourmanip.lss<br />
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex bin/Debug/ourmanip.elf bin/Debug/ourmanip.hex<br />
+avr-objcopy --no-change-warnings -j .eeprom --change-section-lma .eeprom=0 -O ihex bin/Debug/ourmanip.elf bin/Debug/ourmanip.eep<br />
+avr-objcopy --no-change-warnings -j .lock --change-section-lma .lock=0 -O ihex bin/Debug/ourmanip.elf bin/Debug/ourmanip.lock<br />
+avr-objcopy --no-change-warnings -j .signature --change-section-lma .signature=0 -O ihex bin/Debug/ourmanip.elf bin/Debug/ourmanip.sig<br />
+avr-objcopy --no-change-warnings -j .fuse --change-section-lma .fuse=0 -O ihex bin/Debug/ourmanip.elf bin/Debug/ourmanip.fuse<br />
+srec_cat bin/Debug/ourmanip.fuse -Intel -crop 0x00 0x01 -offset  0x00 -O bin/Debug/ourmanip.lfs -Intel <br />
+/bin/sh: 1: srec_cat: not found<br />
+<font color="#a00000">Process terminated with status 127 (0 minute(s), 0 second(s))</font><br />
+<font color="#a00000">0 error(s), 0 warning(s) (0 minute(s), 0 second(s))</font><br />
+</tt>
+</body>
+</html>

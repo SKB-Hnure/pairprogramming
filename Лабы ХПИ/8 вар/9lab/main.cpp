@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int arr[9][9];
+    int caunt=1;
+    int i=0, j=0;
+    int k, l, g;
+    int n=8;
+    int m=0;
+    int buf=0;
+
+
+    //    заполняем массив случю числами
+    srand(time (NULL));
+    for ( i=0;i<9;i++)
+        for (j=0;j<9;j++)
+            arr[i][j]=rand()%201-100;
+
+
+    //вывод массива
+    for(n=0; n<9; n++)
+    {
+        for(m=0; m<9; m++)
+        printf(" %3d ",arr[n][m]);
+        printf("\n");
+    }
+
+
+   for (int i=0;i<9;i++)
+   {
+    while (i>j)
+    {
+    buf=arr[i][j];
+    arr[i][j]=arr[i][8-j];
+    arr[i][8-j]=buf;
+    j++;
+    }
+   j=0;
+   }
+
+printf("\n");
+    //вывод массив
+    for(n=0; n<9; n++)
+    {
+        for(m=0; m<9; m++)
+        printf(" %3d ",arr[n][m]);
+        printf("\n");
+    }
+
+    return 0;
+}

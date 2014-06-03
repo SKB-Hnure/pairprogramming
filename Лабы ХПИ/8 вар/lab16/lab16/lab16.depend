@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1401665860 source:/home/diana/программы/парное программирование/Лабы ХПИ/8 вар/lab16/lab16/main.cpp
+	<iostream>
+	<cmath>
+	<stdio.h>
+

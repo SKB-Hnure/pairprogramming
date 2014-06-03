@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1401814963 source:/home/diana/программы/парное программирование/Лабы ХПИ/8 вар/9lab/main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

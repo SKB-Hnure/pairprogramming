@@ -4,10 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 <tt>
-Build started on: <u>28-05-2014 at 22:39.58</u><br />
-Build ended on: <u>28-05-2014 at 22:39.58</u><p />
+Build started on: <u>29-05-2014 at 10:26.56</u><br />
+Build ended on: <u>29-05-2014 at 10:26.56</u><p />
 <b>-------------- Build: Debug in 1 (compiler: GNU AVR GCC Compiler)---------------</b><br />
-avr-gcc -Wall -mmcu=atmega16 -DF_CPU=16000000UL -g -g -I/usr/include/avr -I/usr/include -c fuse.c -o obj/Debug/fuse.o<br />
 avr-gcc -Wall -mmcu=atmega16 -DF_CPU=16000000UL -g -g -I/usr/include/avr -I/usr/include -c main.c -o obj/Debug/main.o<br />
 <font color="#0000ff">main.c:1:0: warning: "F_CPU" redefined [enabled by default]</font><br />
  #define F_CPU 4000000UL<br />
@@ -18,7 +17,7 @@ In file included from main.c:5:0:<br />
  # warning "Compiler optimizations disabled; functions from &lt;util/delay.h&gt; won't work as designed"<br />
    ^<br />
 avr-g++ -L/usr/lib -o bin/Debug/1.elf obj/Debug/fuse.o obj/Debug/main.o  -mmcu=atmega16 -Wl,-Map=bin/Debug/1.map,--cref<br />
-Output file is bin/Debug/1.elf with size 21,87 KB<br />
+Output file is bin/Debug/1.elf with size 22,04 KB<br />
 avr-objdump -h -S bin/Debug/1.elf &gt; bin/Debug/1.lss<br />
 avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex bin/Debug/1.elf bin/Debug/1.hex<br />
 avr-objcopy --no-change-warnings -j .eeprom --change-section-lma .eeprom=0 -O ihex bin/Debug/1.elf bin/Debug/1.eep<br />

@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1401663495 source:/home/diana/программы/парное программирование/Лабы ХПИ/8 вар/lab10/main.cpp
+	<iostream>
+	<stdio.h>
+	<locale.h>
+	<wchar.h>
+	<langinfo.h>
+

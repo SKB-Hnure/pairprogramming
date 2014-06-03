@@ -1,0 +1,4 @@
+# depslib dependency file v1.0
+1401340635 source:/home/diana/программы/парное программирование/ourmanip/fuse.c
+	<avr/io.h>
+
