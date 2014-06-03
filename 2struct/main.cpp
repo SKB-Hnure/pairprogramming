@@ -8,14 +8,16 @@ struct fraction {
 
 bool found=false;
 int del;
-fraction result;
- fraction fadd(fraction a, fraction b)
+ fraction result;
+
+
+
+
+
+fraction so (fraction result)
  {
-fraction result, temp;
-result.numerator=a.numerator*b.denominator+b.numerator*a.denominator;
-result.denominator=a.denominator*b.denominator;
-//cout<<result.numerator<<"/"<<result.denominator;
- if(result.numerator>result.denominator)//находим меньший из членов
+     fraction temp;
+     if(result.numerator>result.denominator)//находим меньший из членов
     {
         del=result.denominator;
     }
@@ -23,7 +25,6 @@ result.denominator=a.denominator*b.denominator;
      {
          del=result.numerator;
      }
-
  while (!found)
  {
      temp.numerator=result.numerator%del;
@@ -47,8 +48,40 @@ result.denominator=a.denominator*b.denominator;
         }
     }
       }
-return result;
+      return result;
  }
+fraction fsub(fraction a, fraction b)
+ {
+    fraction result, temp;
+    result.numerator=(a.numerator*b.denominator)-(a.denominator*b.numerator);
+    result.denominator=a.denominator*b.denominator;
+    return so(result);
+ }
+ fraction fadd(fraction a, fraction b)
+ {
+fraction result, temp;
+result.numerator=a.numerator*b.denominator+b.numerator*a.denominator;
+result.denominator=a.denominator*b.denominator;
+   return  so(result);
+ }
+fraction fmul(fraction a, fraction b)
+ {
+    fraction result, temp;
+    result.numerator=a.numerator*b.numerator;
+    result.denominator=a.denominator*b.denominator;
+    return so(result);
+ }
+fraction fdev(fraction a, fraction b)
+ {
+    fraction result, temp;
+    result.numerator=a.numerator*b.denominator;
+    result.denominator=a.denominator*b.numerator;
+    return so(result);
+ }
+
+
+
+
 
 int main()
 {
@@ -63,6 +96,15 @@ cin>>operand[1].numerator>>operand[1].denominator;
  case '+':
    result=fadd(operand[0], operand[1]);
    break;
+  case '-':
+   result=fsub(operand[0],operand[1]);
+ break;
+ case '*':
+   result=fmul(operand[0],operand[1]);
+ break;
+ case '/':
+   result=fdev(operand[0],operand[1]);
+ break;
  default:
    cout<<"mistake";
  }

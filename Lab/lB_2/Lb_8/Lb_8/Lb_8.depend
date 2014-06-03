@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1401524903 source:/home/igor/Lab/lB_2/Lb_8/Lb_8/main.cpp
+	<iostream>
+	<ctime>
+	<cstdlib>
+
